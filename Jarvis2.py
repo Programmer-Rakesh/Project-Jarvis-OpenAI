@@ -37,7 +37,7 @@ def wishme():
     date()
     speak("Jarvis at your service. please tell me how may I help you ?")
 
-#wishme()  
+wishme()  
 
 def takeCommand():
     r = sr.Recognizer()
@@ -45,16 +45,14 @@ def takeCommand():
         print("Listening...")
         r.pause_threshold = 1
         audio = r.listen(source)
-
     try:
         print("Recongnizing...")
         query = r.recognize_google(audio, language= 'en-in')
         print(query)
-
     except Exception as e:
         print(e)
         speak("say that again please...")
         return "none"
     return query
 
-takeCommand()    
+#takeCommand()    
