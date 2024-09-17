@@ -31,6 +31,6 @@ def takeCommand():
 if __name__=="__main__":
     while True:
         query = takeCommand().lower()
-        if 'Hey Jarvis' in query:
+        if 'Jarvis' in query:
             print("Yes sir")
             speak("Yes sir")
