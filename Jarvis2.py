@@ -3,8 +3,9 @@ import datetime
 import speech_recognition as sr
 
 engine = pyttsx3.init()
-#engine.say("Hello world")
-#engine.runAndWait()
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[0].id)
+engine.setProperty('rate', 195)      # Voice speed
 
 def speak(audio):
     engine.say(audio)
@@ -14,7 +15,7 @@ def speak(audio):
 #speak("The current time is")
 
 def time():
-    Time = datetime.datetime.now().strftime("%I:%M:%S")     
+    Time = datetime.datetime.now().strftime("%I:%M")     
     speak(Time)
 
 #time()
@@ -42,7 +43,7 @@ def wishme():
     #speak('Welcome back')    
     speak("the current time is")
     time()
-    speak("the current date is")
+    speak("and today's date is")
     date()
     speak("Jarvis at your service. please tell me how may I help you ?")
 
@@ -60,8 +61,15 @@ def takeCommand():
         print(query)
     except Exception as e:
         print(e)
-        speak("say that again please...")
+        speak("Say that again please...")
         return "none"
     return query
 
-takeCommand()    
+takeCommand()
+
+if __name__=="__main__":
+    with True:
+        query = takeCommand().lower()
+        if 'Jarvis' in query:
+            print("Yes sir")
+            speak("Yes sir")
