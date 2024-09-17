@@ -30,7 +30,6 @@ def date():
 #date()    
 
 def wishme():
-    speak('Welcome back')
     hour = int(datetime.datetime.now().hour)
     if hour >= 0 and hour <12:
         speak("Good Morning sir")
