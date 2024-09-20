@@ -1,7 +1,7 @@
 import pyttsx3
 import speech_recognition as sr
 
-engine = pyttsx3.init()
+engine = pyttsx3.init("sapi5")
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 engine.setProperty('rate', 195)      # Voice speed
@@ -25,12 +25,21 @@ def takeCommand():
 
     except Exception as e:
         print("Say that again please...")
-        return "none"
+        return "None"
     return query
 
 if __name__=="__main__":
     while True:
         query = takeCommand().lower()
-        if 'Jarvis' in query:
+        if 'Hello Jarvis' in query:
             print("Yes sir")
             speak("Yes sir")
+
+        elif "who are you" in query:
+            print("My name is Jarvis")
+            speak("My name isd Jarvis")
+            print("I can do Everything that my creator programmed me to do ")
+            speak("I can do Everything that my creator programmed me to do ")
+
+        elif "who created you" in query:
+            
