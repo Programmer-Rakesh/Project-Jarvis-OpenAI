@@ -3,6 +3,7 @@ import speech_recognition as sr
 import wikipedia
 import datetime
 import webbrowser
+import pywhatkit as wk
 import os
 
 engine = pyttsx3.init("sapi5")
@@ -73,6 +74,10 @@ if __name__=="__main__":
             print("I do not know")
             speak("I do not know")
 
+        # elif "who is anand" in query:
+        #     print("Anand is Gay")       
+        #     speak("Anand is Gay")    
+
         elif "what is" in query:
             speak("Searching in wikipedia...")
             query = query.replace("what is", "")
@@ -87,7 +92,7 @@ if __name__=="__main__":
             results = wikipedia.summary(query, sentences=2)
             speak("According to wikipedia...")
             print(results)
-            speak(results)    
+            speak(results)       
 
         elif "just open Google" in query:
             webbrowser.open("google.com")
@@ -98,4 +103,19 @@ if __name__=="__main__":
             webbrowser.open(f"{qry}")
             results = wikipedia.summary(qry, sentences=1)
             speak(results)
+
+        elif "just open youtube" in query:
+            webbrowser.open("youtube.com")
+
+        elif "open youtube" in query:
+            speak("what you will like to watch ?")
+            qrry = takeCommand().lower()
+            wk.playonyt(f'{qrry}')
+
+        elif "search on youtube" in query:
+            query = query.replace("search on youtube", "")
+            webbrowser.open(f"www.youtube.com/results? search_query={query}")
+
+        elif "close browser" in query:
+            os.system("taskkill /f /im msedge.exe")          
 
