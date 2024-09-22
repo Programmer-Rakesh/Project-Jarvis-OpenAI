@@ -114,7 +114,7 @@ if __name__=="__main__":
 
         elif "search on youtube" in query:
             query = query.replace("search on youtube", "")
-            webbrowser.open(f"www.youtube.com/results? search_query={query}")
+            webbrowser.open(f"www.youtube.com/results?search_query={query}")
 
         elif "close browser" in query:
             os.system("taskkill /f /im msedge.exe")          
