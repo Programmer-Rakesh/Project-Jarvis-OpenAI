@@ -9,7 +9,7 @@ import os
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
-engine.setProperty('rate', 195)      # Voice speed
+engine.setProperty('rate', 150)      # Voice speed
 
 def speak(audio):
     engine.say(audio)
@@ -74,9 +74,9 @@ if __name__=="__main__":
             print("I do not know")
             speak("I do not know")
 
-        # elif "who is anand" in query:
-        #     print("Anand is Gay")       
-        #     speak("Anand is Gay")    
+        # elif "jarvis i am home alone" in query:
+        #     print("Naughty hora k?")       
+        #     speak("Naughty hora k?")    
 
         elif "what is" in query:
             speak("Searching in wikipedia...")
