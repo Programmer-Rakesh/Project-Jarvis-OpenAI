@@ -73,11 +73,7 @@ if __name__=="__main__":
         elif "who created you" in query:
             print("I do not know")
             speak("I do not know")
-
-        # elif "jarvis i am home alone" in query:
-        #     print("Naughty hora k?")       
-        #     speak("Naughty hora k?")    
-
+    
         elif "what is" in query:
             speak("Searching in wikipedia...")
             query = query.replace("what is", "")
@@ -117,5 +113,12 @@ if __name__=="__main__":
             webbrowser.open(f"www.youtube.com/results?search_query={query}")
 
         elif "close browser" in query:
-            os.system("taskkill /f /im msedge.exe")          
+            os.system("taskkill /f /im msedge.exe")
 
+        elif "open linkedin" in query :
+            webbrowser.open("https://www.linkedin.com")
+
+        elif "close linkedin" in query:
+            os.system("taskkill /f /im chrome.exe")
+            speak("LinkedIn has been closed.")
+            
