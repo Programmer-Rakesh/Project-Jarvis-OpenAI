@@ -115,10 +115,9 @@ if __name__=="__main__":
         elif "close browser" in query:
             os.system("taskkill /f /im msedge.exe")
 
-        elif "open linkedin" in query :
-            webbrowser.open("https://www.linkedin.com")
+        # elif "open powerpoint" in query :
+        #    npath = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\\PowerPoint.exe"
+        #    os.startfile("npath")
 
-        elif "close linkedin" in query:
-            os.system("taskkill /f /im chrome.exe")
-            speak("LinkedIn has been closed.")
-            
+        # elif "close powerpoint" in query:
+        #     os.system("taskkill /f /im PowerPoint.exe")
