@@ -9,7 +9,7 @@ import os
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
-engine.setProperty('rate', 150)      # Voice speed
+engine.setProperty('rate', 185)      # Voice speed
 
 def speak(audio):
     engine.say(audio)
@@ -73,6 +73,11 @@ if __name__=="__main__":
         elif "who created you" in query:
             print("I do not know")
             speak("I do not know")
+
+        elif "what is the time" in query:
+            strTime = datetime.datetime.now().strftime("%H:%M")
+            print(f"Sir, the time is {strTime}")        
+            speak(f"Sir, the time is {strTime}")    
     
         elif "what is" in query:
             speak("Searching in wikipedia...")
@@ -88,7 +93,27 @@ if __name__=="__main__":
             results = wikipedia.summary(query, sentences=2)
             speak("According to wikipedia...")
             print(results)
-            speak(results)       
+            speak(results) 
+         
+        # elif "what is" in query or "who is" in query:
+        #     speak("Searching in Wikipedia...")
+        #     query = query.replace("what is", "").replace("who is", "")
+        #     try:
+        #         # Handle disambiguation and search
+        #         results = wikipedia.summary(query, sentences=2)
+        #         speak("According to Wikipedia...")
+        #         print(results)
+        #         speak(results)
+        #     except wikipedia.exceptions.DisambiguationError as e:
+        #         print("There are multiple meanings for this query. Please specify one of the following options:")
+        #         print(e.options)  # Show possible options to refine the query
+        #         speak("There are multiple meanings for this query. Please be more specific.")
+        #     except wikipedia.exceptions.PageError:
+        #         print("Sorry, no matching page found.")
+        #         speak("Sorry, I couldn't find anything on Wikipedia.")
+        #     except Exception as e:
+        #         print(f"An error occurred: {e}")
+        #         speak("Sorry, I couldn't retrieve information at this moment.")    
 
         elif "just open Google" in query:
             webbrowser.open("google.com")
@@ -115,9 +140,15 @@ if __name__=="__main__":
         elif "close browser" in query:
             os.system("taskkill /f /im msedge.exe")
 
-        # elif "open powerpoint" in query :
-        #    npath = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\\PowerPoint.exe"
+        # elif "open Steam" in query :
+        #    npath = r"C:\Program Files (x86)\Steam.exe"
         #    os.startfile("npath")
 
-        # elif "close powerpoint" in query:
-        #     os.system("taskkill /f /im PowerPoint.exe")
+        # elif "close " in query:
+        #     os.system("taskkill /f /im Steam")
+        # 
+        elif "shut down the system" in query:
+            os.system("shutdown /s /t 5")
+
+        elif "restart the system" in query:
+            os.system("shutdown /r /t 5")                        
