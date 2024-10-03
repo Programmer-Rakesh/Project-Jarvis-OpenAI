@@ -146,7 +146,7 @@ if __name__=="__main__":
 
         # elif "close " in query:
         #     os.system("taskkill /f /im Steam")
-        # 
+         
         elif "shut down the system" in query:
             os.system("shutdown /s /t 5")
 
