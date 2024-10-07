@@ -138,17 +138,4 @@ if __name__=="__main__":
             webbrowser.open(f"www.youtube.com/results?search_query={query}")
 
         elif "close browser" in query:
-            os.system("taskkill /f /im msedge.exe")
-
-        # elif "open Steam" in query :
-        #    npath = r"C:\Program Files (x86)\Steam.exe"
-        #    os.startfile("npath")
-
-        # elif "close " in query:
-        #     os.system("taskkill /f /im Steam")
-         
-        elif "shut down the system" in query:
-            os.system("shutdown /s /t 5")
-
-        elif "restart the system" in query:
-            os.system("shutdown /r /t 5")                        
+            os.system("taskkill /f /im msedge.exe")                  
