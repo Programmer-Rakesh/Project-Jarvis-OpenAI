@@ -79,41 +79,41 @@ if __name__=="__main__":
             print(f"Sir, the time is {strTime}")        
             speak(f"Sir, the time is {strTime}")    
     
-        elif "what is" in query:
-            speak("Searching in wikipedia...")
-            query = query.replace("what is", "")
-            results = wikipedia.summary(query, sentences=2)
-            speak("According to wikipedia...")
-            print(results)
-            speak(results)
+        # elif "what is" in query:
+        #     speak("Searching in wikipedia...")
+        #     query = query.replace("what is", "")
+        #     results = wikipedia.summary(query, sentences=2)
+        #     speak("According to wikipedia...")
+        #     print(results)
+        #     speak(results)
 
-        elif "who is" in query:
-            speak("Searching in wikipedia...")
-            query = query.replace("who is", "")
-            results = wikipedia.summary(query, sentences=2)
-            speak("According to wikipedia...")
-            print(results)
-            speak(results) 
+        # elif "who is" in query:
+        #     speak("Searching in wikipedia...")
+        #     query = query.replace("who is", "")
+        #     results = wikipedia.summary(query, sentences=2)
+        #     speak("According to wikipedia...")
+        #     print(results)
+        #     speak(results) 
          
-        # elif "what is" in query or "who is" in query:
-        #     speak("Searching in Wikipedia...")
-        #     query = query.replace("what is", "").replace("who is", "")
-        #     try:
-        #         # Handle disambiguation and search
-        #         results = wikipedia.summary(query, sentences=2)
-        #         speak("According to Wikipedia...")
-        #         print(results)
-        #         speak(results)
-        #     except wikipedia.exceptions.DisambiguationError as e:
-        #         print("There are multiple meanings for this query. Please specify one of the following options:")
-        #         print(e.options)  # Show possible options to refine the query
-        #         speak("There are multiple meanings for this query. Please be more specific.")
-        #     except wikipedia.exceptions.PageError:
-        #         print("Sorry, no matching page found.")
-        #         speak("Sorry, I couldn't find anything on Wikipedia.")
-        #     except Exception as e:
-        #         print(f"An error occurred: {e}")
-        #         speak("Sorry, I couldn't retrieve information at this moment.")    
+        elif "what is" in query or "who is" in query:
+            speak("Searching in Wikipedia...")
+            query = query.replace("what is", "").replace("who is", "")
+            try:
+                # Handle disambiguation and search
+                results = wikipedia.summary(query, sentences=2)
+                speak("According to Wikipedia...")
+                print(results)
+                speak(results)
+            except wikipedia.exceptions.DisambiguationError as e:
+                print("There are multiple meanings for this query. Please specify one of the following options:")
+                print(e.options)  # Show possible options to refine the query
+                speak("There are multiple meanings for this query. Please be more specific.")
+            except wikipedia.exceptions.PageError:
+                print("Sorry, no matching page found.")
+                speak("Sorry, I couldn't find anything on Wikipedia.")
+            except Exception as e:
+                print(f"An error occurred: {e}")
+                speak("Sorry, I couldn't retrieve information at this moment.")    
 
         elif "just open Google" in query:
             webbrowser.open("google.com")
